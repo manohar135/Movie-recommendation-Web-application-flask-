@@ -1,12 +1,6 @@
 {% extends 'base.html' %} {% block title %}Movies Recommendation System{%
 endblock title %} {% block body %}
 
-<section id="home" class="home">
-  <div class="home-text fade-text">
-    <h2 class="home-title">Movies Recommendation System</h2>
-  </div>
-</section>
-
 <div class="row justify-content-center padding">
   <div class="col-md-8 ftco-animate fadeInUp ftco-animated">
     <form action="#" class="domain-form">
@@ -14,12 +8,12 @@ endblock title %} {% block body %}
         <input
           type="text"
           class="form-control px-4"
-          placeholder="Search.."
+          placeholder="Search Movies.."
           id="myInput"
           onkeyup="filterFunction(false)"
         />
         <button class="Recommend_btn btn"
-        onClick = "filterFunction(true)">Recommend</button>
+        onClick = "filterFunction(true); return false">Recommend</button>
       </div>
       <div class="movie-content">
         <div class="card listcard">
@@ -29,7 +23,8 @@ endblock title %} {% block body %}
     </form>
   </div>
 
-  <div class="row row-cols-1 row-cols-md-5 g-4" style = "marge">
+  <div id = "card-container" class="row row-cols-1 row-cols-md-5 g-4">
+    <div id="head" class="row">Movies Similar to: <span></span></div>
     <div class="col">
       <div class="card h-100">
         <img src="..." class="card-img-top" alt="..." />

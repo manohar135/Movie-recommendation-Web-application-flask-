@@ -96,56 +96,6 @@ header.shadow .logo {
     transition: 0.3s;
 }
 
-
-.home {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(150deg, rgba(0, 0, 0, 1) 15%, rgba(50, 50, 50, 1) 45%, rgba(0, 0, 0, 1) 100%);
-    width: 100%;
-    min-height: 80vh;
-}
-
-.home-text {
-    color: white;
-    text-align: center;
-}
-
-.home-title {
-    font-size: 4.5rem;
-    font-weight: 700;
-    width: 100%;
-}
-
-.home-subtitle {
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-.fade-text {
-    animation: fadeIn 3s;
-    -webkit-animation: fadeIn 3s;
-    -moz-animation: fadeIn 3s;
-    -o-animation: fadeIn 3s;
-    -ms-animation: fadeIn 3s;
-    transition: 1s ease-out;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-
 /* search style */
 
 .padding {
@@ -198,4 +148,39 @@ header.shadow .logo {
 .Recommend_btn:hover{
     background: var(--sec_color);
     color: white;
+}
+
+#head{
+    display: none;
+    width: 100%;
+    padding: 0 25px;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#head span{
+    display: contents;
+    color: var(--sec_color);
+}
+
+
+#card-container{
+    margin-top: 90px; 
+}
+
+#card-container .col{
+    display:none;
+}
+
+.fade-in{
+    animation: fadeInBottom 1s cubic-bezier(0.2, 1.10, 0.5, 1.50);
+}
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to { opacity: 1 }
 }

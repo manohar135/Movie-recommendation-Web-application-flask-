@@ -1,9 +1,3 @@
-let header = document.querySelector("header");
-
-window.addEventListener("scroll", () => {
-  header.classList.toggle("shadow", window.scrollY > 100);
-});
-
 
 // sending the input to flask app and geting the 5 movie list
 function filterFunction(rec) { //When recommend botton is clicked
@@ -20,8 +14,8 @@ function filterFunction(rec) { //When recommend botton is clicked
     .then((response) => response.text())
     .then((data) => {
       if(rec){
+        window.scrollBy(0, 500)
         displayRecommendation(JSON.parse(data))
-        // displayRecommendation(data)
       }else{
         displayFilter(JSON.parse(data));
       }
@@ -52,22 +46,36 @@ function displayFilter(data) {
     listItems[i].addEventListener("click", function () {
 
       while (ul.firstChild) {
-        ul.removeChild(ul.lastChild);
+        ul.removeChild(ul.lastChild); //removing other movie list when one movie is selected
       }
 
-      var name = this.textContent; 
+      var head = document.getElementById("head");
+      var name = this.textContent;
+      head.childNodes[1].textContent = name;
       document.getElementById("myInput").value = name;
     });
   }
 }
 
+async function displayRecommendation(data){
+  const timer = ms => new Promise(res => setTimeout(res, ms))
+  card = document.getElementById("card-container").getElementsByClassName("col");
 
-function displayRecommendation(data){
+  document.getElementById("head").style.display="block"
+  
+  for(var i = 0; i<card.length; i++){
+    card[i].style.display = "none";
+  }
   cardImage = document.getElementsByClassName("card-img-top");
   cardTitles = document.getElementsByClassName("card-title");
+  
+  await timer(500);
   for(var i = 0; i<cardTitles.length; i++){
+    card[i].style.display = "block";
     cardImage[i].src = data.posters[i]
     cardTitles[i].textContent = data.titles[i];
+    card[i].classList.add("fade-in");
+    await timer(1000);
   }
 }
 
