@@ -1,3 +1,7 @@
+# Screenshots
+![Screenshot 2024-03-24 075810](https://github.com/manohar135/Movie-recommendation-Web-application-flask-/assets/83820994/8886de51-097f-4de6-b13b-58b758c0acfe)
+![Screenshot 2024-03-22 171525](https://github.com/manohar135/Movie-recommendation-Web-application-flask-/assets/83820994/5ceb9ffa-e115-4df3-bfd7-4d89ab21f59c)
+
 # Movie-recommendation-Web-application-flask-
 This project encompasses the entire pipeline of building a content-based movie recommendation system, from data preprocessing to creating interactive web application. Leveraging machine learning and NLP algorithms, along with web development technologies, we've created an end-to-end solution for recommending movies based on user preferences.
 
