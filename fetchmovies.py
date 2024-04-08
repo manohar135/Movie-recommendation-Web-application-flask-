@@ -2,14 +2,18 @@ import pandas as pd
 import pickle as pkl
 import requests
 import numpy as np
+import os
+dirname = os.path.dirname(__file__)
+movie_list = os.path.join(dirname, 'ML_model/listOf5.pkl')
+tmdb = os.path.join(dirname, "ML_model/tmdb_5000_movies.csv")
 
-with open('ML_model\\listOf5.pkl', 'rb') as f:
+with open(movie_list, 'rb') as f:
     rlist = pkl.load(f)
 
 rlist = np.array(rlist)
 
 #Getting the title list of the movies
-df = pd.read_csv("ML_model\\tmdb_5000_movies.csv")
+df = pd.read_csv(tmdb)
 names = df["original_title"]
 
 #provides five suggestion in the search
