@@ -9,7 +9,7 @@ with open('ML_model\listOf5.pkl', 'rb') as f:
 rlist = np.array(rlist)
 
 #Getting the title list of the movies
-df = pd.read_csv("ML_model/tmdb_5000_movies.csv")
+df = pd.read_csv("ML_model\\tmdb_5000_movies.csv")
 names = df["original_title"]
 
 #provides five suggestion in the search
