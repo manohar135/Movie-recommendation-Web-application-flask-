@@ -44,7 +44,7 @@ def reccomendMovies(title):
 
     rmovie_titles = list(df.loc[rmovies, 'original_title'].values)
 
-    movie_ids = df.loc[rmovies, 'id'].values
+    movie_ids = df.loc[rmovies, 'id'].values.tolist()
     poster_urls = [fetch_poster(id) for id in movie_ids]
-    return rmovie_titles, poster_urls
+    return rmovie_titles, poster_urls, movie_ids
 

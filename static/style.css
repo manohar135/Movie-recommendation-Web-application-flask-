@@ -173,8 +173,18 @@ header.shadow .logo {
     display:none;
 }
 
+#card-container .card{
+    transition: all ease-in-out 0.5s;
+}
+
+#card-container .card:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px #272727;
+    cursor: pointer;
+}
+
 .fade-in{
-    animation: fadeInBottom 1s cubic-bezier(0.2, 1.10, 0.5, 1.50);
+    animation: fadeInBottom 0.6s cubic-bezier(0.2, 1.10, 0.5, 1.50);
 }
 
 @keyframes fadeInBottom {

@@ -15,7 +15,7 @@ function filterFunction(rec) { //When recommend botton is clicked
     .then((data) => {
       if(rec){
         window.scrollBy(0, 500)
-        displayRecommendation(JSON.parse(data))
+        displayRecommendation(JSON.parse(data));
       }else{
         displayFilter(JSON.parse(data));
       }
@@ -59,23 +59,39 @@ function displayFilter(data) {
 
 async function displayRecommendation(data){
   const timer = ms => new Promise(res => setTimeout(res, ms))
-  card = document.getElementById("card-container").getElementsByClassName("col");
-
+  cards = document.getElementById("card-container").getElementsByClassName("col");
+  
   document.getElementById("head").style.display="block"
   
-  for(var i = 0; i<card.length; i++){
-    card[i].style.display = "none";
+  
+  for(var i = 0; i<cards.length; i++){
+    cards[i].style.display = "none";
   }
+  
   cardImage = document.getElementsByClassName("card-img-top");
   cardTitles = document.getElementsByClassName("card-title");
   
   await timer(500);
   for(var i = 0; i<cardTitles.length; i++){
-    card[i].style.display = "block";
+    cards[i].style.display = "block";
     cardImage[i].src = data.posters[i]
     cardTitles[i].textContent = data.titles[i];
-    card[i].classList.add("fade-in");
-    await timer(1000);
+    cards[i].classList.add("fade-in");
+    await timer(500);
   }
+
+  onClickURL(data.movie_ids);
 }
 
+
+function onClickURL(movie_ids){
+  cards = document.getElementById("card-container").querySelectorAll(".card");
+
+  cards.forEach((item, index) => {
+    item.onclick = function() {
+      const url = "https://www.themoviedb.org/movie/" + movie_ids[index];
+      window.open(url);
+    };
+  });
+
+}
