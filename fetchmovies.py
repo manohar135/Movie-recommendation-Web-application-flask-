@@ -3,7 +3,7 @@ import pickle as pkl
 import requests
 import numpy as np
 
-with open('ML_model\listOf5.pkl', 'rb') as f:
+with open('ML_model\\listOf5.pkl', 'rb') as f:
     rlist = pkl.load(f)
 
 rlist = np.array(rlist)
